@@ -2,3 +2,13 @@ flask
 python-dotenv
 requests
 auth0-python
+packaging 
+oauth2client 
+redis 
+passlib 
+flask-httpauth
+sqlalchemy 
+flask-sqlalchemy 
+psycopg2 
+bleach 
+requests
