@@ -373,10 +373,11 @@ def getUserID(email):
 #             'deleteMenuItem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=deletedItem)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.secret_key = constants.SECRET_KEY
-    app.config['SERVER_NAME'] = '0.0.0.0'
-    port = int(env.get('PORT', 5000))
+    port = int(env.get("PORT", 5000))
+    print env
+    print path
     if port == 5000:
         app.debug = True
-    app.run()
+    app.run(host='0.0.0.0', port=port)
