@@ -1,76 +1,221 @@
-from flask import Flask #, url_for, render_template, request, redirect, flash, jsonify
+from urlparse import urlparse
 
-# from sqlalchemy import create_engine
-# from sqlalchemy.orm import sessionmaker
-# from database_setup import Base, Restaurant, MenuItem
+from flask import Flask, url_for, render_template
+from flask import request, redirect, flash, jsonify
+from flask import send_from_directory, Response, make_response
 
-# from flask import session as login_session
-# import random, string
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from database_setup import Base, Project, User
 
-# # IMPORTS FOR THIS STEP
-# from oauth2client.client import flow_from_clientsecrets
-# from oauth2client.client import FlowExchangeError
-# import httplib2
-# import json
-# from flask import make_response
-# import requests
+from flask import session as login_session
+import random
+import string
 
-# # Declare client ID by referencing the JSON file downloaded from Google.
-# CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
+from os import environ as env, path
+import json
+import httplib2
 
-# engine = create_engine('sqlite:///restaurantmenu.db')
-# Base.metadata.bind = engine
-# DBSession = sessionmaker(bind = engine)
-# session = DBSession()
+from auth0.v3.authentication import GetToken
+from auth0.v3.authentication import Users
+from dotenv import load_dotenv
+from functools import wraps
+
+import constants
+
+from dashboard import projects_from_db
+
+engine = create_engine('sqlite:///capexprojectswithusers.db')
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
+
+load_dotenv(path.join(path.dirname(__file__), ".env"))
+# What is this stuff? Where does it come into play?
+
+AUTH0_CALLBACK_URL = constants.AUTH0_CALLBACK_URL
+AUTH0_CLIENT_ID = constants.AUTH0_CLIENT_ID
+AUTH0_CLIENT_SECRET = constants.AUTH0_CLIENT_SECRET
+AUTH0_DOMAIN = constants.AUTH0_DOMAIN
+
 
 app = Flask(__name__)
 
+noPageAccess = 'Hold up! It looks like you don\'t have access to this page!'
+
+
+# Here we're using the /callback route.
+@app.route('/callback')
+def callback_handling():
+    code = request.args.get(constants.CODE_KEY)
+
+    if code is None:
+        return redirect('/')
+
+    get_token = GetToken(AUTH0_DOMAIN)
+    auth0_users = Users(AUTH0_DOMAIN)
+    token = get_token.authorization_code(AUTH0_CLIENT_ID,
+                                         AUTH0_CLIENT_SECRET, code,
+                                         AUTH0_CALLBACK_URL)
+    access_token = token['access_token']
+    user_info = json.loads(auth0_users.userinfo(access_token))
+
+    # Check that the access token is valid.
+    url = ('https://capextool.auth0.com/userinfo/?access_token=%s'
+           % access_token)
+    # Submit request, parse response
+    h = httplib2.Http()
+    response = h.request(url, 'GET')[1]
+    str_response = response.decode('utf-8')
+    result = json.loads(str_response)
+
+    # If there was an error in the access token info, abort.
+    if result.get('error') is not None:
+        response = make_response(json.dumps(result.get('error')), 500)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+
+    # Verify that the access token is used for the intended user.
+    auth0Id = user_info['sub']
+    if result['sub'] != auth0Id:
+        response = make_response(
+            json.dumps("Token's sub doesn't match sub from cURL."), 401)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+
+    # # Verify that the access token is valid for this app.
+    # if result['issued_to'] != CLIENT_ID:
+    #     response = make_response(
+    #         json.dumps("Token's client ID does not match app's."), 401)
+    #     response.headers['Content-Type'] = 'application/json'
+    #     return response
+
+    stored_access_token = login_session.get('access_token')
+    stored_sub = login_session.get('profile', {}).get('sub')
+    if stored_access_token is not None and auth0Id == stored_sub:
+        response = make_response(json.dumps(
+            'Current user is already connected.'), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+
+    # Add user info
+    login_session[constants.PROFILE_KEY] = user_info
+
+    # see if user exists, if it doesn't make a new one
+    user_id = getUserID(login_session['profile']['name'])
+    if not user_id:
+        user_id = createUser(login_session)
+    login_session['user_id'] = user_id
+
+    flash("you are now logged in under %s" % login_session['profile']['name'])
+
+    return redirect('/user/%s/dashboard' % user_id)
+
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if 'profile' not in login_session:
+            # Redirect to Login page here
+            return redirect('/')
+        return f(*args, **kwargs)
+
+    return decorated
+
+
+# Controllers API
 @app.route('/')
 @app.route('/home')
 def showHomepage():
-    return "This page will show my homepage."
+    return render_template('homepage.html', env=env)
 
-@app.route('/login')
-def login():
-    return "This page will be for logging into the app."
-
-@app.route('/register')
-def register():
-    return "This page will be for signing up for the app."
 
 @app.route('/user/<int:user_id>/dashboard')
-def showDashboard(user_id):
-    return "This page will show the projects for user %s." % user_id
+@requires_auth
+def dashboard(user_id):
+    if user_id != login_session['user_id']:
+        response = make_response(json.dumps(
+            noPageAccess), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    projects_list = projects_from_db()
+    return render_template('dashboard.html',
+                           user=login_session[constants.PROFILE_KEY],
+                           env=env, user_id=user_id,
+                           projects_list=projects_list)
+
+
+@app.route('/logout')
+def logout():
+    login_session.clear()
+    parsed_base_url = urlparse(AUTH0_CALLBACK_URL)
+    base_url = parsed_base_url.scheme + '://' + parsed_base_url.netloc
+    return redirect('https://%s/v2/logout?returnTo=%s&client_id=%s' % (
+        AUTH0_DOMAIN, base_url, AUTH0_CLIENT_ID))
+
 
 @app.route('/user/<int:user_id>/project/<int:project_id>/inputs')
+@requires_auth
 def showInputs(user_id, project_id):
-    return "This page will show the inputs for project {0} from user {1}".format\
-        (unicode(str(project_id),'utf-8'),unicode(str(user_id),'utf-8'))
+    if user_id != login_session['user_id']:
+        response = make_response(json.dumps(
+            noPageAccess), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    return render_template('inputs.html',
+                           user=login_session[constants.PROFILE_KEY],
+                           env=env, user_id=user_id, project_id=project_id)
+
 
 @app.route('/user/<int:user_id>/project/<int:project_id>/results')
+@requires_auth
 def showResults(user_id, project_id):
-    return "This page will show the results for project {0} from user {1}".format\
-        (unicode(str(project_id),'utf-8'),unicode(str(user_id),'utf-8'))
+    if user_id != login_session['user_id']:
+        response = make_response(json.dumps(
+            noPageAccess), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    return render_template('results.html',
+                           user=login_session[constants.PROFILE_KEY],
+                           env=env, user_id=user_id, project_id=project_id)
+
 
 @app.route('/user/<int:user_id>/compare')
+@requires_auth
 def compareSelect(user_id):
     return "This will be the compare page for user %s." % user_id
 
+
 @app.route('/user/<int:user_id>/compare/<int:project_id_1>/<int:project_id_2>/<int:project_id_3>')
+@requires_auth
 def compareResults(user_id, project_id_1, project_id_2, project_id_3):
     return "This page will show the results for projects being compare for user {0}, 1st project: \
         {1}, 2nd project: {2}, third project: {3}.".format(unicode(str(user_id), 'utf-8'), \
         unicode(str(project_id_1), 'utf-8'), unicode(str(project_id_2), 'utf-8'), \
         unicode(str(project_id_3), 'utf-8'))
 
-# Create a state token to prevent request forgery.
-# Store it in the session for later validation.
-# @app.route('/login')
-# def showLogin():
-#     state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
-#     login_session['state'] = state
-#     return render_template('login.html', STATE=state)
 
+# User Helper Functions
+def createUser(login_session):
+    email = login_session['profile']['name']
+    newUser = User(email=email)
+    session.add(newUser)
+    session.commit()
+    user = session.query(User).filter_by(email=email).one()
+    return user.id
+
+
+def getUserInfo(user_id):
+    user = session.query(User).filter_by(id=user_id).one()
+    return user
+
+
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
 
 # @app.route('/gconnect', methods=['POST'])
 # def gconnect():
@@ -228,12 +373,7 @@ def compareResults(user_id, project_id_1, project_id_2, project_id_3):
 #             'deleteMenuItem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=deletedItem)
 
 
-
 if __name__ == '__main__':
-    # app.secret_key = 'super_secret_key'
+    app.secret_key = constants.SECRET_KEY
     app.debug = True
-    app.run(host = '0.0.0.0', port = 5000)
-
-
-
-
+    app.run(host='0.0.0.0', port=env.get('PORT', 5000))

@@ -1,0 +1,128 @@
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+ 
+body {
+    min-height: 100%;
+    padding-bottom: 15rem;
+    position: relative;
+}
+
+
+header h1 {
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+/*header button {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+*/
+main {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section {
+    border-bottom: 1px solid gray;
+    display: flex;
+    height: 450px;
+}
+
+.right {
+    float: right;
+}
+
+.projectsListed {
+    width: 50%;
+}
+
+.splashpage {
+    border-bottom: 1px solid gray;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+}
+
+.dropdown .btn {
+    border: none;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0;
+}
+
+
+.first-main {
+    vertical-align: middle;
+}
+
+.first-img {
+    order: 1;
+    width: 50%;
+}
+
+.first-main img {
+    box-shadow: 5px 5px 20px gray;
+    margin: 7%;
+}
+
+.first-text {
+    order: 2;
+    width: 50%;
+}
+
+.first-main p {
+    padding: 20%;
+    text-align: left;
+}
+
+.second-img {
+    order: 2;
+    text-align: right;
+    width: 50%;
+}
+
+.second-text {
+    order: 1;
+    width: 50%;
+}
+
+.second-main p {
+    padding: 20%;
+    text-align: right;
+}
+
+.second-main img {
+    box-shadow: 5px 5px 20px gray;
+    margin: 7%;
+}
+
+.login-form {
+    text-align: center;
+}
+
+footer {
+    background-color: gray;
+    bottom: 0;
+    height: 80px;
+    left: 0;
+    padding-right: 20px;
+    padding-top: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright {
+    text-align: right;
+}

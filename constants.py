@@ -1,0 +1,18 @@
+""" Constants file for Auth0's seed project
+"""
+ACCESS_TOKEN_KEY = 'access_token'
+API_ID = 'API_ID'
+APP_JSON_KEY = 'application/json'
+AUTH0_CLIENT_ID = 'uL61M0bVYCd72QwsrvGioOHotcRlqw35'
+AUTH0_CLIENT_SECRET = '3dtMdBV5P4jtohyJCtwk0P0HBoOk_hv_oHYzEkYtHCOWjFR59MBBphTPIYf6tucz'
+AUTH0_CALLBACK_URL = 'http://127.0.0.1:5000/callback'
+AUTH0_DOMAIN = 'capextool.auth0.com'
+AUTHORIZATION_CODE_KEY = 'authorization_code'
+CLIENT_ID_KEY = 'uL61M0bVYCd72QwsrvGioOHotcRlqw35'
+CLIENT_SECRET_KEY = '3dtMdBV5P4jtohyJCtwk0P0HBoOk_hv_oHYzEkYtHCOWjFR59MBBphTPIYf6tucz'
+CODE_KEY = 'code'
+CONTENT_TYPE_KEY = 'content-type'
+GRANT_TYPE_KEY = 'grant_type'
+PROFILE_KEY = 'profile'
+REDIRECT_URI_KEY = 'http://127.0.0.1:5000/callback'
+SECRET_KEY = 'ThisIsTheSecretKey'
