@@ -49,4 +49,9 @@ Vagrant.configure("2") do |config|
 
     echo "Done installing your virtual machine!"
   SHELL
+
+  config.push.define "heroku" do |push|
+    push.app = "sustainable-roi"
+  end
 end
+
