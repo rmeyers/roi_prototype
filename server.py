@@ -379,4 +379,4 @@ if __name__ == '__main__':
     port = int(env.get('PORT', 5000))
     if port == 5000:
         app.debug = True
-    app.run(host=app.config['SERVER_NAME'], port=port)
+    app.run()
