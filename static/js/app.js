@@ -34,7 +34,7 @@ $(document).ready(function() {
         audience: 'https://' + 'capextool.auth0.com' + '/userinfo',
         scope: 'openid profile',
         responseType: 'code',
-        redirectUri: 'http://127.0.0.1:5000/callback'
+        redirectUri: AUTH0_CALLBACK_URL
       });
     });
 });  

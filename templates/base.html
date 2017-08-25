@@ -73,7 +73,7 @@
     <script>
       var AUTH0_CLIENT_ID = '{{env.AUTH0_CLIENT_ID}}';
       var AUTH0_DOMAIN = '{{env.AUTH0_DOMAIN}}';
-      var AUTH0_CALLBACK_URL = '{{env.AUTH0_CALLBACK_URL if env.AUTH0_CALLBACK_URL else "http://127.0.0.1:5000/callback" }}';
+      var AUTH0_CALLBACK_URL = '{{env.AUTH0_CALLBACK_URL if env.AUTH0_CALLBACK_URL else "https://sustainable-roi.herokuapp.com/callback" }}';
       var API_AUDIENCE = '{{env.API_IDENTIFIER}}';
     </script>
     <script src="/static/js/app.js"> </script>
