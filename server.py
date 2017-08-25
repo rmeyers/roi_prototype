@@ -375,6 +375,8 @@ def getUserID(email):
 
 if __name__ == '__main__':
     app.secret_key = constants.SECRET_KEY
-    app.config['SERVER_NAME'] = 'sustainable-roi.herokuapp.com'
-    app.debug = True
-    app.run(host=app.config['SERVER_NAME'], port=int(env.get('PORT', 5000)))
+    app.config['SERVER_NAME'] = '$DYNO'
+    port = int(env.get('PORT', 5000))
+    if port == 5000:
+        app.debug = True
+    app.run(host=app.config['SERVER_NAME'], port=port)
