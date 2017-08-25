@@ -12,3 +12,4 @@ flask-sqlalchemy
 psycopg2 
 bleach 
 requests
+gunicorn
