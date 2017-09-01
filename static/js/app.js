@@ -12,9 +12,9 @@
 //         scope: 'openid profile',
 //         responseType: 'code',
 //         redirectUri: AUTH0_CALLBACK_URL
-//       }); 
+//       });
 //     });
-    
+
 //     $('.btn-logout').click(function(e) {
 //       e.preventDefault();
 //       window.location.href = '/logout';
@@ -37,4 +37,4 @@ $(document).ready(function() {
         redirectUri: AUTH0_CALLBACK_URL
       });
     });
-});  
+});
