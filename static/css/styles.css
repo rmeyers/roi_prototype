@@ -70,12 +70,22 @@ table {
     border: 1px solid gray;
     box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
     background-color: #ffffff;
-
 }
 
 .inputs .menu {
     text-align: right;
 }
+
+
+/* Results */
+
+.results {
+    margin: 20px 2.5%;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+}
+
 
 /* ----- FOOTER ----- */
 
