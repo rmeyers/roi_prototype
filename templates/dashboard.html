@@ -4,23 +4,25 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-  <section class="wrap dashboard">
-    <h3>Projects Dashboard</h3><br/>
-    <h5>Welcome, {{ session.profile.nickname | title }}.<br/><br/>
-    <table class="">
-      <thead>
-        <tr>
-        </tr>
-      </thead>
-      <tbody>
-        {% for project in projects_list %}
-        <tr>
-          <td><h5>{{ project.name }}</h5></td>
-          <td><a class="button tiny round info" href="{{ url_for('showInputs', user_id=session.user_id, project_id=project.id) }}">Open</a></td>
-          <td><a class="button tiny round alert" href="#">Delete</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <section class="dashboard">
+    <div class="wrap contents">
+      <h3>Projects Dashboard</h3><br/>
+      <h5>Welcome, {{ session.profile.nickname | title }}.</h5><br/><br/>
+      <table class="">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          {% for project in projects_list %}
+          <tr>
+            <td><h5>{{ project.name }}</h5></td>
+            <td><a class="button round tiny info" href="{{ url_for('showInputs', user_id=session.user_id, project_id=project.id) }}">Open</a></td>
+            <td><a class="button round tiny alert" href="#">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </section>
 {% endblock %}

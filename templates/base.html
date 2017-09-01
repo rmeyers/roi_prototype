@@ -32,7 +32,6 @@
               {% if not session.profile %}
                 <li><a class="button radius small btn-login">Login</a></li>
               {% else %}
-                <li><a class="button radius small" href="{{ url_for('dashboard', user_id=session.user_id) }}">Dashboard</a></li>
                 <li><a class="button radius small" onclick="location.href='/logout';">Logout</a></li>
               {% endif %}
             </ul>
