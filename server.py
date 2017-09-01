@@ -376,8 +376,6 @@ def getUserID(email):
 if __name__ == "__main__":
     app.secret_key = constants.SECRET_KEY
     port = int(env.get("PORT", 5000))
-    print env
-    print path
     if port == 5000:
         app.debug = True
     app.run(host='0.0.0.0', port=port)

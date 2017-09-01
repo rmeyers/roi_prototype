@@ -4,31 +4,38 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-  <div class="splashpage">
-    <h1>21st Century CapEx Appraisal Tool</h1>
-    <h3>Streamlined approach. Making the case.</h3>
-    <h3>Sustainability included.</h3>
-    {% if not session.profile %}
-      <button type="button" class="btn btn-primary btn-lg btn-login">Get Started</button>
-    {% else %}
-      <a class="btn btn-primary btn-lg btn-dashboard" href="{{ url_for('dashboard', user_id=session.user_id) }}">Dashboard</a>
-    {% endif %}
+  <div class="hero">
+    <div class="wrap">
+      <h1>21st Century CapEx Appraisal Tool</h1>
+      <h3>Streamlined approach. Making the case.</h3>
+      <h3>Sustainability included.</h3>
+      <a class="button" href="#">Learn More</a>
+      {% if not session.profile %}
+        <a class="button success radius btn-login">Get Started</a>
+      {% else %}
+        <a class="button success radius" href="{{ url_for('dashboard', user_id=session.user_id) }}">Dashboard</a>
+      {% endif %}
+    </div>
   </div>
   <main>
-    <section class="first-main">
-      <div class="first-img">
-        <img src="static/img/windfarm.jpg" alt="Image 1"/>
-      </div>
-      <div class="first-text">
-        <p>This is going to be a great tool!</p>
+    <section>
+      <div class="row wrap">
+        <div class="medium-6 column">
+          <img src="static/img/windfarm.jpg" alt="Image 1"/>
+        </div>
+        <div class="medium-6 column">
+          <p>This is going to be a great tool!</p>
+        </div>
       </div>
     </section>
-    <section class="second-main">
-      <div class="second-text">
-        <p>This part will talk about all the awesome features!</p>
-      </div>
-      <div class="second-img">
-        <img src="static/img/clouds.png" alt="Image 2" />
+    <section>
+      <div class="row wrap">
+        <div class="medium-6 column">
+          <p>This part will talk about all the awesome features!</p>
+        </div>
+        <div class="medium-6 column">
+          <img src="static/img/clouds.png" alt="Image 2" />
+        </div>
       </div>
     </section>
   </main>

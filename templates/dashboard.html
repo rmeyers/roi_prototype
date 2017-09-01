@@ -4,23 +4,24 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-  <h1>Projects Dashboard</h1>
-  <h3>Projects listed here</h3></br></br>
-  <table class="projectsListed">
-    <tr>
-      <th>Project Name</th>
-    </tr>
-    {% for project in projects_list %}
-    <tr>
-      <td><h5>{{ project.name }}</h5></td>
-      <td><a class="btn right" href="{{ url_for('showInputs', user_id=session.user_id, project_id=project.id) }}">Open</a></td>
-      <td><a class="btn left" href="#">Delete</a></td>
-    </tr>
-    {% endfor %}
-    <td>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-    </td>
-  </table>
+  <section class="wrap dashboard">
+    <h3>Projects Dashboard</h3><br/>
+    <table class="">
+      <tr>
+        <th>Project Name</th>
+      </tr>
+      {% for project in projects_list %}
+      <tr>
+        <td><h5>{{ project.name }}</h5></td>
+        <td><a class="btn right" href="{{ url_for('showInputs', user_id=session.user_id, project_id=project.id) }}">Open</a></td>
+        <td><a class="btn left" href="#">Delete</a></td>
+      </tr>
+      {% endfor %}
+      <td>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+      </td>
+    </table>
+  </section>
 {% endblock %}
