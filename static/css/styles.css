@@ -1,6 +1,5 @@
 /* -----GENERAL------ */
 
-
 .wrap {
     margin: 0 auto;
     max-width: 1100px;
@@ -11,6 +10,19 @@
     padding: 30px 0;
 }
 
+.valign-middle {
+    display: table;
+}
+
+.valign-middle .columns {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.valign-middle .columns,
+.valign-middle [class*="column"] + [class*="column"]:last-child {
+    float: none;
+    }
 
 /* ----- NAV ----- */
 
@@ -76,15 +88,43 @@ table {
     text-align: right;
 }
 
+#inputs-tabs li a {
+     text-align: center;
+     vertical-align: middle;
+     height: 64px;
+}
+
+.has-tip {
+    border-bottom: none;
+}
+
+.inputs-heading {
+    text-align: center;
+    width: 100%;
+}
+
+.has-tip .button {
+    cursor: help;
+}
+
+input {
+    color: black !important;
+    font-size: 15px !important;
+}
+
+.tabs-panel p {
+    font-size: 13px;
+}
 
 /* Results */
 
 .results {
-    margin: 20px 2.5%;
+    background-color: #ffffff;
     border: 1px solid gray;
     box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
-    background-color: #ffffff;
+    margin: 20px 2.5%;
 }
+
 
 
 /* ----- FOOTER ----- */

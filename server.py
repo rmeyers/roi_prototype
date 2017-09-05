@@ -25,6 +25,8 @@ import constants
 
 from dashboard import projects_from_db
 
+from inputsData import inputs_data as inputs
+
 engine = create_engine('sqlite:///capexprojectswithusers.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
@@ -164,7 +166,8 @@ def showInputs(user_id, project_id):
         return response
     return render_template('inputs.html',
                            user=login_session[constants.PROFILE_KEY],
-                           env=env, user_id=user_id, project_id=project_id)
+                           env=env, user_id=user_id, project_id=project_id,
+                           inputs=inputs)
 
 
 @app.route('/user/<int:user_id>/project/<int:project_id>/results')
