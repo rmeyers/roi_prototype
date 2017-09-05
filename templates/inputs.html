@@ -49,7 +49,7 @@
                                 </div>
                             </div>
 
-                            {% for input in inputs %}
+                            {% for input in inputs.project %}
                             <div class="row valign-middle">
                                 <div class="small-3 columns">
                                     <h6>{{ input.name }}</h6>
@@ -71,10 +71,48 @@
                             <p>Estimate the potential operating expense (OPEX) savings. Treat the line items as prompts to consider if any such savings might result from the initiative.</p>
                             <p>The project's impact on each expense line item may be direct or indirect. Leave any that are unlikely to occur as 0% Change. Estimate the possible percentage reductions in expenses when the project is fully implemented.</p>
 
+                            <div class="row valign-middle inputs-heading">
+                                <div class="small-3 columns">
+                                    <h6>Input Name</h6>
+                                </div>
+                                <div class="small-1 columns">
+                                </div>
+                                <div class="small-2 columns">
+                                    <h6>Current Expense</h6>
+                                </div>
+                                <div class="small-1 columns">
+                                </div>
+                                <div class="small-2 columns">
+                                    <h6>% Change</h6>
+                                </div>
+                                <div class="small-3 columns">
+                                    <h6>Comments</h6>
+                                </div>
+                            </div>
 
+                            {% for input in inputs.opex %}
+                            <div class="row valign-middle">
+                                <div class="small-3 columns">
+                                    <h6>{{ input.name }}</h6>
+                                </div>
+                                <div class="small-1 columns">
+                                    <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" title="{{ input.cur_exp_tooltip }}"><a class="button round tiny info" href="#">Guidance</a></span>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input type="{{ input.cur_exp_type }}" value="{{ input.cur_exp_value }}" placeholder="{{ input.cur_exp_placeholder }}" />
+                                </div>
+                                <div class="small-1 columns">
+                                    <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" title="{{ input.percent_tooltip }}"><a class="button round tiny info" href="#">Guidance</a></span>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input type="{{ input.percent_type }}" value="{{ input.percent_value }}" placeholder="{{ input.percent_placeholder }}" />
+                                </div>
+                                <div class="small-3 columns">
+                                    <input type="text" value="{{ input.comment }}" />
+                                </div>
+                            </div>
+                            {% endfor %}
 
-
-                </p>
                         </div>
                         <div id="capex" class="tabs-panel">
                             <h3>Menu 2</h3>
