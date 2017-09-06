@@ -8,16 +8,160 @@
         <div class="wrap contents">
             <div class="row">
                 <div class="small-6 columns">
-                    <h3>Results Page</h3>
+                        <h3>Results Page</h3>
                 </div>
                 <ul class="small-6 columns menu align-right">
-                    <li><a class="button small secondary right" href="{{ url_for('showResults', user_id=session.user_id, project_id=10) }}">Download Form</a></li>
+                    <li><a class="button small secondary right export" href="#">Export to Word</a></li>
                     <li class="divider"></li>
                     <li><a class="button small secondary" href="{{ url_for('showInputs', user_id=session.user_id, project_id=10) }}">< Back to Inputs</a></li>
                 </ul>
+            </div><br><br>
+
+            <div class="row">
+                <div class="columns results-box"><br>
+                    <h5>Project Details</h5><br>
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Name: </h6>
+                        <div class="small-2 columns">Bob Willard </div>
+                        <div class="small-2 columns rtitle">Project Originator: </div>
+                        <div class="small-2 columns">ROI Tool Inc. </div>
+                        <div class="small-2 columns rtitle">Department: </div>
+                        <div class="small-2 columns">Awesomeness </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Phone: </h6>
+                        <div class="small-2 columns">647-971-3333 </div>
+                        <div class="small-2 columns rtitle">Project Life: </div>
+                        <div class="small-2 columns">43 Years </div>
+                        <div class="small-2 columns rtitle">Project Location: </div>
+                        <div class="small-2 columns">Markham, Ontario </div>
+                    </div>
+
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Start Date: </h6>
+                        <div class="small-2 columns">January 1 2018 </div>
+                        <div class="small-2 columns rtitle">End Date: </div>
+                        <div class="small-2 columns">January 1 2061 </div>
+                        <div class="small-2 columns rtitle"> </div>
+                        <div class="small-2 columns"> </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Project Description</h5><br>
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Purpose Fulfillment </h6>
+                        <div class="small-2 columns">Bob Willard </div>
+                        <div class="small-2 columns rtitle">Governance </div>
+                        <div class="small-2 columns">ROI Tool Inc. </div>
+                        <div class="small-2 columns rtitle">Environment </div>
+                        <div class="small-2 columns">Awesomeness </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Society </h6>
+                        <div class="small-2 columns">647-971-3333 </div>
+                        <div class="small-2 columns rtitle">Employee Wellbeing </div>
+                        <div class="small-2 columns">43 Years </div>
+                        <div class="small-2 columns rtitle">Revenues </div>
+                        <div class="small-2 columns">Markham, Ontario </div>
+                    </div>
+
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Asset and Market Values </h6>
+                        <div class="small-2 columns">January 1 2018 </div>
+                        <div class="small-2 columns rtitle">Risks of doing </div>
+                        <div class="small-2 columns">January 1 2061 </div>
+                        <div class="small-2 columns rtitle">Risks of not doing</div>
+                        <div class="small-2 columns">Could be bad. </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Project Cost Estimate</h5><br>
+                    <div class="row">
+                        <h6 class="small-2 columns rtitle">Total Capital Costs </h6>
+                        <div class="small-2 columns">$1,204,300 </div>
+                        <div class="small-2 columns rtitle"> </div>
+                        <div class="small-2 columns"> </div>
+                        <div class="small-2 columns rtitle"> </div>
+                        <div class="small-2 columns"> </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Annual Operating Costs</h5><br>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Impact on Operating Expenses </h6>
+                        <div class="small-3 columns">$22,440 </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Impact on Employee Expenses </h6>
+                        <div class="small-3 columns">$44,909 </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Revenues</h5><br>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Revenues </h6>
+                        <div class="small-3 columns">$22,440 </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Risks</h5><br>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Risk 1 </h6>
+                        <div class="small-3 columns">$22,440 </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Risk 2 </h6>
+                        <div class="small-3 columns">$44,909 </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+
+                    <hr>
+
+                    <h5>Financial Analysis</h5><br>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Net Present Value </h6>
+                        <div class="small-3 columns">$22,440,000 </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Return on Investment </h6>
+                        <div class="small-3 columns">337% </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Internal Rate of Return </h6>
+                        <div class="small-3 columns">27% </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+                    <div class="row">
+                        <h6 class="small-3 columns rtitle">Payback Period (Simple) </h6>
+                        <div class="small-3 columns">1.6 years </div>
+                        <div class="small-3 columns rtitle"> </div>
+                        <div class="small-3 columns"> </div>
+                    </div>
+
+
+                </div>
             </div>
-            </br></br>
-            72
         </div>
     </section>
 {% endblock %}
+
+

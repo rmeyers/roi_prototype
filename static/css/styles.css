@@ -205,7 +205,24 @@ input {
     margin: 20px 2.5%;
 }
 
+.results-box {
+    border: 1px solid #e6e6e6;
+    padding: 5% 3%;
+}
 
+.results-box h5 {
+    text-decoration: underline;
+}
+
+/* rtitle for Results Title */
+.rtitle {
+    text-align: right;
+    font-weight: bold;
+}
+
+hr {
+    width: 75%;
+}
 
 /* ----- FOOTER ----- */
 

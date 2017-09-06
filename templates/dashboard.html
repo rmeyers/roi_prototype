@@ -7,7 +7,12 @@
   <section class="dashboard">
     <div class="wrap contents">
       <h3>Projects Dashboard</h3><br/>
-      <h5>Welcome, {{ session.profile.nickname | title }}.</h5><br/><br/>
+      <div class="row">
+        <h5 class="small-6 columns float-left">Welcome, {{ session.profile.nickname | title }}.</h5>
+        <ul class="small-6 columns menu align-right">
+          <li><a class="button small secondary right compare" href="#">Compare Projects</a></li>
+        </ul>
+      </div><br><br>
       <table class="">
         <thead>
           <tr>
@@ -18,7 +23,7 @@
           <tr>
             <td><h5>{{ project.name }}</h5></td>
             <td><a class="button round tiny info" href="{{ url_for('showInputs', user_id=session.user_id, project_id=project.id) }}">Open</a></td>
-            <td><a class="button round tiny alert" href="#">Delete</a></td>
+            <td><a class="button round tiny alert delete-project" href="#">Delete</a></td>
           </tr>
           {% endfor %}
         </tbody>
