@@ -63,7 +63,7 @@ inputs_data = {
 
     'opex': [{'var': 'energy',
               'name': 'Savings on energy expenses',
-              'cur_exp_tooltip': """Description:
+              'cur_exp_tooltip': """<strong>Description:</strong>
                This is the total cost of electricity and fuel used by the company,
                including the cost of any renewable energy used.
                Estimation guidance: This cost is usually accounted for in general
@@ -157,8 +157,53 @@ inputs_data = {
               'cur_exp_type': 'number', 'cur_exp_value': 52447.95,
               'percent_tooltip': """Description: (Complete appropriately)""",
               'percent_type': 'number', 'percent_value': 16.5,
-               'comment': ''}]
-        }
+               'comment': ''}],
+
+    'capex': [{'name': 'One-time capital costs of repairs and replacements',
+               'type': 'number', 'value': 102000, 'placeholder': '',
+               'comment': '',
+               'tooltip': """<strong>Description:</strong>This is a one-time capital
+              expense required for the project.
+              <br><br><strong>Context:</strong> Note that this is a one-time capital cost.
+              On-going operating costs associated with the initiative
+              are accounted for in the "Operating Exp" worksheet.
+              Estimation guidance: Use rules-of-thumb and informed
+              estimates of what these capital expenses might be.
+              Err on the conservative side and confirm your estimate
+              with mangers closest to this kind of project, especially
+              if they will be involved with implementing it. Use this
+              comment box to document assumptions behind your estimate."""
+               },
+              {'name': 'One-time capital cost of retrofits', 'type': 'number',
+               'value': 203050, 'placeholder': '', 'comment': '',
+               'tooltip': """<strong>Description:</strong>This is a one-time capital
+              expense required for the project.
+              <br><br><strong>Context:</strong> Note that this is a one-time capital cost.
+              On-going operating costs associated with the initiative
+              are accounted for in the "Operating Exp" worksheet.
+              Estimation guidance: Use rules-of-thumb and informed
+              estimates of what these capital expenses might be.
+              Err on the conservative side and confirm your estimate
+              with mangers closest to this kind of project, especially
+              if they will be involved with implementing it. Use this
+              comment box to document assumptions behind your estimate."""
+               },
+              {'name': 'One-time capital cost of implementing new processes and systems',
+               'type': 'number', 'value': 5049300, 'placeholder': '', 'comment': '',
+               'tooltip': """<strong>Description:</strong>This is a one-time capital
+              expense required for the project.
+              <br><br><strong>Context:</strong> Note that this is a one-time capital cost.
+              On-going operating costs associated with the initiative
+              are accounted for in the "Operating Exp" worksheet.
+              Estimation guidance: Use rules-of-thumb and informed
+              estimates of what these capital expenses might be.
+              Err on the conservative side and confirm your estimate
+              with mangers closest to this kind of project, especially
+              if they will be involved with implementing it. Use this
+              comment box to document assumptions behind your estimate."""
+               }
+              ]
+}
 
 # """,'percent_type': 'number','percent_value': '50.7%%',cur_exp_value': '',comment': '',},"
 #     'name': 'energy', 'cur_exp_tooltip': """Description:

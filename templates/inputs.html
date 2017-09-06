@@ -92,7 +92,52 @@
                                     <td>
                                         <input class="recalc percent" type="{{ input.percent_type }}" value="{{ input.percent_value | round(0) }}" placeholder="{{ input.percent_placeholder }}" />
                                     </td>
-                                    <td>$<span id="savings">{{ (input.cur_exp_value * input.percent_value / 100) | round(0) }}</span></td>
+                                    <td>$<span class="savings">{{ (input.cur_exp_value * input.percent_value / 100) | round(0) }}</span></td>
+                                    <td>
+                                        <input type="text" value="{{ input.comment | safe }}" />
+                                    </td>
+                                </tr>
+
+                                <tr class="table-expand-row-content">
+                                  <td colspan="8" class="table-expand-row-nested">
+                                    <p>{{ input.cur_exp_tooltip|safe }}</p>
+                                    <p>{{ input.percent_tooltip|safe }}</p>
+                                  </td>
+                                </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total Saved:</td>
+                                    <td id="sum">SUM</td>
+                                    <td></td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div id="capex" class="tabs-panel">
+                            <h3>Capital Costs/Expenditures</h3>
+                            <p>This page is where you should list the required capital expenditures for the project. </p>
+
+
+                            <table class="table-expand">
+                              <thead>
+                                <tr class="table-expand-row">
+                                  <th width="350" class="text-center">Capital expenditures (CAPEX) (sample)</th>
+                                  <th width="250" class="text-center">Cost</th>
+                                  <th width="350" class="text-center">Comments</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for input in inputs.capex %}
+                                <tr class="table-expand-row">
+                                    <td data-open-details><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
+                                    <td>
+                                        <input class="recalc val" type="{{ input.type }}" value="{{ input.value | round(0) }}" placeholder="{{ input.placeholder }}" />
+                                    </td>
                                     <td>
                                         <input type="text" value="{{ input.comment }}" />
                                     </td>
@@ -100,20 +145,18 @@
 
                                 <tr class="table-expand-row-content">
                                   <td colspan="8" class="table-expand-row-nested">
-                                    <p>{{ input.cur_exp_tooltip }}</p>
-                                    <p>{{ input.percent_tooltip }}</p>
+                                    <p>{{ input.tooltip | safe }}</p>
                                   </td>
                                 </tr>
                                 {% endfor %}
                               </tbody>
                             </table>
-                        </div>
-                        <div id="capex" class="tabs-panel">
-                            <h3>CapEx</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+
+
                         </div>
                         <div id="gov" class="tabs-panel">
-                            <h3>Government</h3>
+                            <h3>Governance</h3>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                         </div>
                         <div id="env" class="tabs-panel">

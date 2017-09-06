@@ -116,6 +116,19 @@ input {
     font-size: 13px;
 }
 
+.table-expand td  {
+    color: black;
+    text-align: right;
+}
+
+.table-expand .table-expand-row-nested {
+    text-align: left;
+}
+
+.table-expand #sum {
+    text-align: center;
+}
+
 /* INPUTS - Accordion CSS */
 
 .table-expand-row input {
@@ -135,10 +148,6 @@ input {
 
 .table-expand {
   margin-top: 5rem;
-}
-
-.table-expand td {
-  color: #8a8a8a;
 }
 
 .table-expand tr {
