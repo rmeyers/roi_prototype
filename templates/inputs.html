@@ -46,8 +46,8 @@
                               </thead>
                               <tbody>
                                 {% for input in inputs.project %}
-                                <tr class="table-expand-row" data-open-details>
-                                    <td><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
+                                <tr class="table-expand-row">
+                                    <td data-open-details><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
                                     <td>
                                         <input type="{{ input.type }}" value="{{ input.value }}" placeholder="{{ input.placeholder }}" />
                                     </td>
@@ -84,8 +84,8 @@
                               </thead>
                               <tbody>
                                 {% for input in inputs.opex %}
-                                <tr class="table-expand-row" data-open-details>
-                                    <td><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
+                                <tr class="table-expand-row">
+                                    <td data-open-details><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
                                     <td>
                                         <input type="{{ input.cur_exp_type }}" value="{{ input.cur_exp_value }}" placeholder="{{ input.cur_exp_placeholder }}" />
                                     </td>

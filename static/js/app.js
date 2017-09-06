@@ -40,8 +40,9 @@ $(document).ready(function() {
 
   $('[data-open-details]').click(function (e) {
     e.preventDefault();
-    $(this).next().toggleClass('is-active');
-    $(this).toggleClass('is-active');
+    var $tr = $(this).parent();//this will give the tr
+    $($tr).next().toggleClass('is-active');
+    $($tr).toggleClass('is-active');
   });
 
 });
