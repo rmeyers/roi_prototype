@@ -22,100 +22,122 @@
                         <li class="tabs-title is-active"><a href="#project">Project<br>Details</a></li>
                         <li class="tabs-title"><a href="#opex">Operating<br>Costs</a></li>
                         <li class="tabs-title"><a href="#capex">Capital<br>Costs</a></li>
-                        <li class="tabs-title"><a href="#project">Governance</a></li>
-                        <li class="tabs-title"><a href="#project">Environment</a></li>
-                        <li class="tabs-title"><a href="#project">Community<br>& Customers</a></li>
-                        <li class="tabs-title"><a href="#project">Employees</a></li>
-                        <li class="tabs-title"><a href="#project">Revenues</a></li>
-                        <li class="tabs-title"><a href="#project">Asset<br>Value</a></li>
-                        <li class="tabs-title"><a href="#project">Risks</a></li>
+                        <li class="tabs-title"><a href="#gov">Governance</a></li>
+                        <li class="tabs-title"><a href="#env">Environment</a></li>
+                        <li class="tabs-title"><a href="#soc">Society</a></li>
+                        <li class="tabs-title"><a href="#emp">Employees</a></li>
+                        <li class="tabs-title"><a href="#rev">Revenues</a></li>
+                        <li class="tabs-title"><a href="#assets">Asset<br>Value</a></li>
+                        <li class="tabs-title"><a href="#risks">Risks</a></li>
                     </ul>
 
                     <div class="tabs-content" data-tabs-content="inputs-tabs">
                         <div id="project" class="tabs-panel is-active">
                             <h3>Project Details</h3>
                             <p>Explain what the project is all about and how it aligns with and fulfills the organization's purpose.</p>
-                            <div class="row valign-middle inputs-heading">
-                                <div class="small-3 columns">
-                                    <h6>Input Name</h6>
-                                </div>
-                                <div class="small-1 columns">
-                                </div>
-                                <div class="small-3 columns">
-                                    <h6>Value</h6>
-                                </div>
-                                <div class="small-5 columns">
-                                    <h6>Comments</h6>
-                                </div>
-                            </div>
 
-                            {% for input in inputs.project %}
-                            <div class="row valign-middle">
-                                <div class="small-3 columns">
-                                    <h6>{{ input.name }}</h6>
-                                </div>
-                                <div class="small-1 columns">
-                                    <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" title="{{ input.tooltip }}"><a class="button round tiny info" href="#">Guidance</a></span>
-                                </div>
-                                <div class="small-3 columns">
-                                    <input type="{{ input.type }}" value="{{ input.value }}" placeholder="{{ input.placeholder }}" />
-                                </div>
-                                <div class="small-5 columns">
-                                    <input type="text" value="{{ input.comment }}" />
-                                </div>
-                            </div>
-                            {% endfor %}
+                            <table class="table-expand">
+                              <thead>
+                                <tr class="table-expand-row">
+                                  <th width="250" class="text-center">Input Name</th>
+                                  <th class="text-center">Value</th>
+                                  <th width=300 class="text-center">Comments</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for input in inputs.project %}
+                                <tr class="table-expand-row" data-open-details>
+                                    <td><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
+                                    <td>
+                                        <input type="{{ input.type }}" value="{{ input.value }}" placeholder="{{ input.placeholder }}" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="{{ input.comment }}" />
+                                    </td>
+                                </tr>
+
+                                <tr class="table-expand-row-content">
+                                  <td colspan="8" class="table-expand-row-nested">
+                                    <p>{{ input.tooltip }}</p>
+                                  </td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
                         </div>
+
+
                         <div id="opex" class="tabs-panel">
                             <h3>Operating Expense Savings</h3>
                             <p>Estimate the potential operating expense (OPEX) savings. Treat the line items as prompts to consider if any such savings might result from the initiative.</p>
                             <p>The project's impact on each expense line item may be direct or indirect. Leave any that are unlikely to occur as 0% Change. Estimate the possible percentage reductions in expenses when the project is fully implemented.</p>
 
-                            <div class="row valign-middle inputs-heading">
-                                <div class="small-3 columns">
-                                    <h6>Input Name</h6>
-                                </div>
-                                <div class="small-1 columns">
-                                </div>
-                                <div class="small-2 columns">
-                                    <h6>Current Expense</h6>
-                                </div>
-                                <div class="small-1 columns">
-                                </div>
-                                <div class="small-2 columns">
-                                    <h6>% Change</h6>
-                                </div>
-                                <div class="small-3 columns">
-                                    <h6>Comments</h6>
-                                </div>
-                            </div>
+                            <table class="table-expand">
+                              <thead>
+                                <tr class="table-expand-row">
+                                  <th width="250" class="text-center">Input Name</th>
+                                  <th class="text-center">Current Expense</th>
+                                  <th class="text-center">% Change</th>
+                                  <th class="text-center">Savings</th>
+                                  <th width=300 class="text-center">Comments</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for input in inputs.opex %}
+                                <tr class="table-expand-row" data-open-details>
+                                    <td><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
+                                    <td>
+                                        <input type="{{ input.cur_exp_type }}" value="{{ input.cur_exp_value }}" placeholder="{{ input.cur_exp_placeholder }}" />
+                                    </td>
+                                    <td>
+                                        <input type="{{ input.percent_type }}" value="{{ input.percent_value }}" placeholder="{{ input.percent_placeholder }}" />
+                                    </td>
+                                    <td>$48,993</td>
+                                    <td>
+                                        <input type="text" value="{{ input.comment }}" />
+                                    </td>
+                                </tr>
 
-                            {% for input in inputs.opex %}
-                            <div class="row valign-middle">
-                                <div class="small-3 columns">
-                                    <h6>{{ input.name }}</h6>
-                                </div>
-                                <div class="small-1 columns">
-                                    <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" title="{{ input.cur_exp_tooltip }}"><a class="button round tiny info" href="#">Guidance</a></span>
-                                </div>
-                                <div class="small-2 columns">
-                                    <input type="{{ input.cur_exp_type }}" value="{{ input.cur_exp_value }}" placeholder="{{ input.cur_exp_placeholder }}" />
-                                </div>
-                                <div class="small-1 columns">
-                                    <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" title="{{ input.percent_tooltip }}"><a class="button round tiny info" href="#">Guidance</a></span>
-                                </div>
-                                <div class="small-2 columns">
-                                    <input type="{{ input.percent_type }}" value="{{ input.percent_value }}" placeholder="{{ input.percent_placeholder }}" />
-                                </div>
-                                <div class="small-3 columns">
-                                    <input type="text" value="{{ input.comment }}" />
-                                </div>
-                            </div>
-                            {% endfor %}
-
+                                <tr class="table-expand-row-content">
+                                  <td colspan="8" class="table-expand-row-nested">
+                                    <p>{{ input.cur_exp_tooltip }}</p>
+                                    <p>{{ input.percent_tooltip }}</p>
+                                  </td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
                         </div>
                         <div id="capex" class="tabs-panel">
-                            <h3>Menu 2</h3>
+                            <h3>CapEx</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="gov" class="tabs-panel">
+                            <h3>Government</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="env" class="tabs-panel">
+                            <h3>Environment</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="soc" class="tabs-panel">
+                            <h3>Society</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="emp" class="tabs-panel">
+                            <h3>Employees</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="rev" class="tabs-panel">
+                            <h3>Revenues</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="assets" class="tabs-panel">
+                            <h3>Assets</h3>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                        </div>
+                        <div id="risks" class="tabs-panel">
+                            <h3>Risks</h3>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                         </div>
                     </div>

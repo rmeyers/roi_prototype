@@ -28,13 +28,20 @@ $(document).ready(function() {
    });
 
 
-    $('.btn-login').click(function(e) {
-      e.preventDefault();
-      auth.authorize({
-        audience: 'https://' + 'capextool.auth0.com' + '/userinfo',
-        scope: 'openid profile',
-        responseType: 'code',
-        redirectUri: AUTH0_CALLBACK_URL
-      });
+  $('.btn-login').click(function(e) {
+    e.preventDefault();
+    auth.authorize({
+      audience: 'https://' + 'capextool.auth0.com' + '/userinfo',
+      scope: 'openid profile',
+      responseType: 'code',
+      redirectUri: AUTH0_CALLBACK_URL
     });
+  });
+
+  $('[data-open-details]').click(function (e) {
+    e.preventDefault();
+    $(this).next().toggleClass('is-active');
+    $(this).toggleClass('is-active');
+  });
+
 });
