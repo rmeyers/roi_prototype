@@ -63,7 +63,20 @@ inputs_data = {
 
     'opex': [{'var': 'energy',
               'name': 'Savings on energy expenses',
-              'cur_exp_tooltip': """Description: This is the total cost of """,
+              'cur_exp_tooltip': """Description:
+               This is the total cost of electricity and fuel used by the company,
+               including the cost of any renewable energy used.
+               Estimation guidance: This cost is usually accounted for in general
+               operating
+               and overhead expenses" within Selling, General and Administrative
+               (SG&A) expenses in the annual report. If they are available, utility
+               bills may be helpful in identifying this expense. Depending on
+               company size and sector, Energy expenses" are typically equivalent
+               to 1% to 15% of revenue. For services companies, the percentage will
+               be at the low end of the range; for manufacturing companies, it will
+               be at the high end of the range. If this value is not known or
+               available, edit this comment box to document your estimation logic
+               and sources, for later verification. """,
               'cur_exp_type': 'number', 'cur_exp_value': 2107.81,
               'percent_tooltip': """Description: The potential percentage r""",
               'percent_type': 'text', 'percent_value': '24.4%',
