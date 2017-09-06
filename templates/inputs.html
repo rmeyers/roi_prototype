@@ -87,12 +87,12 @@
                                 <tr class="table-expand-row">
                                     <td data-open-details><a href="#"><span class="expand-icon"></span>{{ input.name }}</a></td>
                                     <td>
-                                        <input type="{{ input.cur_exp_type }}" value="{{ input.cur_exp_value }}" placeholder="{{ input.cur_exp_placeholder }}" />
+                                        <input class="recalc val" type="{{ input.cur_exp_type }}" value="{{ input.cur_exp_value | round(0) }}" placeholder="{{ input.cur_exp_placeholder }}" />
                                     </td>
                                     <td>
-                                        <input type="{{ input.percent_type }}" value="{{ input.percent_value }}" placeholder="{{ input.percent_placeholder }}" />
+                                        <input class="recalc percent" type="{{ input.percent_type }}" value="{{ input.percent_value | round(0) }}" placeholder="{{ input.percent_placeholder }}" />
                                     </td>
-                                    <td>$48,993</td>
+                                    <td>$<span id="savings">{{ (input.cur_exp_value * input.percent_value / 100) | round(0) }}</span></td>
                                     <td>
                                         <input type="text" value="{{ input.comment }}" />
                                     </td>

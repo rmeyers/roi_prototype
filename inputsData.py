@@ -79,89 +79,88 @@ inputs_data = {
                and sources, for later verification. """,
               'cur_exp_type': 'number', 'cur_exp_value': 2107.81,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '24.4%',
+              'percent_type': 'number', 'percent_value': 24.4,
               'percent_placeholder': '', 'comment': ''},
              {'var': 'carbon',
               'name': 'Savings on carbon expenses',
               'cur_exp_tooltip': """Description: This is the total cost to """,
               'cur_exp_type': 'number', 'cur_exp_value': 14461.79,
-
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '74.6%',
+              'percent_type': 'number', 'percent_value': 74.6,
                'comment': ''},
              {'var': 'shipping',
               'name': 'Savings on shipping / transportation expenses',
               'cur_exp_tooltip': """Description: These are expenses incurre""",
               'cur_exp_type': 'number', 'cur_exp_value': 81176.36,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '47.3%',
+              'percent_type': 'number', 'percent_value': 47.3,
                'comment': ''},
              {'var': 'bus_travel',
               'name': 'Savings on business travel expenses',
               'cur_exp_tooltip': """Description: This is the cost of employ""",
               'cur_exp_type': 'number', 'cur_exp_value': 54036.22,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '76.8%',
+              'percent_type': 'number', 'percent_value': 76.8,
                'comment': ''},
              {'var': 'maint',
               'name': 'Savings on maintenance expenses',
               'cur_exp_tooltip': """Description: This is the cost of parts """,
               'cur_exp_type': 'number', 'cur_exp_value': 50940.29,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '75.2%',
+              'percent_type': 'number', 'percent_value': 75.2,
                'comment': ''},
              {'var': 'materials',
               'name': 'Lower materials expenses ',
               'cur_exp_tooltip': """Description: This the total cost of all""",
               'cur_exp_type': 'number', 'cur_exp_value': 1680.31,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '32%',
+              'percent_type': 'number', 'percent_value': 32,
                'comment': ''},
              {'var': 'water',
               'name': 'Lower water expenses',
               'cur_exp_tooltip': """Description: This is the total cost of """,
               'cur_exp_type': 'number', 'cur_exp_value': 58259.95,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '86.9%',
+              'percent_type': 'number', 'percent_value': 86.9,
                'comment': ''},
              {'var': 'waste',
               'name': 'Lower waste disposal expenses',
               'cur_exp_tooltip': """Description: This is the cost of waste """,
               'cur_exp_type': 'number', 'cur_exp_value': 712.67,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '40.4%',
+              'percent_type': 'number', 'percent_value': 40.4,
                'comment': ''},
              {'var': 'insurance',
               'name': 'Lower insurance premiums ',
               'cur_exp_tooltip': """Definition: This is the cost premiums p""",
               'cur_exp_type': 'number', 'cur_exp_value': 39827.45,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '43.9%',
+              'percent_type': 'number', 'percent_value': 43.9,
                'comment': ''},
              {'var': 'litigation',
               'name': 'Lower litigation expenses ',
               'cur_exp_tooltip': """Definition: This is the cost of fightin""",
               'cur_exp_type': 'number', 'cur_exp_value': 23409.72,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '19.3%',
+              'percent_type': 'number', 'percent_value': 19.3,
                'comment': ''},
              {'var': 'compliance',
               'name': 'Lower compliance expenses ',
               'cur_exp_tooltip': """Definition: This is the cost of complyi""",
               'cur_exp_type': 'number', 'cur_exp_value': 67243.25,
               'percent_tooltip': """Description: The potential percentage r""",
-              'percent_type': 'text', 'percent_value': '16.5%',
+              'percent_type': 'number', 'percent_value': 16.5,
                'comment': ''},
              {'var': 'other',
               'name': '(Lower cost of other expense?) ',
               'cur_exp_tooltip': """Definition: This is the cost of complyi""",
               'cur_exp_type': 'number', 'cur_exp_value': 52447.95,
               'percent_tooltip': """Description: (Complete appropriately)""",
-              'percent_type': 'text', 'percent_value': '16.5%',
+              'percent_type': 'number', 'percent_value': 16.5,
                'comment': ''}]
         }
 
-# """,'percent_type': 'text','percent_value': '50.7%%',cur_exp_value': '',comment': '',},"
+# """,'percent_type': 'number','percent_value': '50.7%%',cur_exp_value': '',comment': '',},"
 #     'name': 'energy', 'cur_exp_tooltip': """Description:
 #                 This is the total cost of electricity and fuel used by the company,
 #                 including the cost of any renewable energy used.
@@ -241,7 +240,7 @@ inputs_data = {
 #                 have high energy bills. Companies in the service sector may
 #                 find that there are fewer potential savings opportunities. Use
 #                 this comment box to document assumptions behind your
-#                 estimate. """, 'percent_type': 'text',
+#                 estimate. """, 'percent_type': 'number',
 #                 'percent_value': '24.4%', 'percent_placeholder': '',
 #                 'comment': ''}]
 #     }
@@ -278,7 +277,7 @@ inputs_data = {
 
 # * Carbon savings may become >100% if the company provides its own on-site renewable energy and generates carbon credits that it sells to other companies. It transforms an expense to a revenue stream that goes straight to the bottom line. — ""Selling Power Back to the Grid,"" Bloomberg.com, July 6, 2006 —
 
-# Estimation guidance:  The percentage reduction in carbon expense should correlate well with the percentage reduction in energy expenses, above. The ""% Change"" could be quite high for companies in the extractive and manufacturing sectors because they typically have high carbon footprints. Companies in the service sector may find that there are fewer potential savings opportunities. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '74.6%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance:  The percentage reduction in carbon expense should correlate well with the percentage reduction in energy expenses, above. The ""% Change"" could be quite high for companies in the extractive and manufacturing sectors because they typically have high carbon footprints. Companies in the service sector may find that there are fewer potential savings opportunities. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '74.6%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'shipping','cur_exp_tooltip': """
 # Description: These are expenses incurred by the company to ship its goods from its suppliers to company locations, between company locations, and between company facilities and distribution centers and retail outlets.
 
@@ -292,7 +291,7 @@ inputs_data = {
 # Possibilities:
 # By the end of 2014, Wal-Mart used better routing, truck loading, driver training, and advanced technologies to improve fuel efficiency by 87% compared to a 2005 baseline, resulting in 15,000 metric tons of CO2 emissions avoided and savings of nearly $11 million. — Tensie Whelan and Carly Fink, "The Comprehensive Business Case for Sustainability," Harvard Business Review, October 2016 —
 
-# Estimation guidance: The ""% Change"" could be worth recording for companies in the manufacturing, distribution, and retail sectors because they typically have higher shipping costs. Companies in the service sector may find that there are few, if any, potential savings opportunities. Use this comment box to document assumptions behind your estimate. ','percent_type': 'text','percent_value': '47.3%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be worth recording for companies in the manufacturing, distribution, and retail sectors because they typically have higher shipping costs. Companies in the service sector may find that there are few, if any, potential savings opportunities. Use this comment box to document assumptions behind your estimate. ','percent_type': 'number','percent_value': '47.3%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'bus_travel','cur_exp_tooltip': """
 # Description: This is the cost of employee business trips.
 
@@ -303,7 +302,7 @@ inputs_data = {
 
 # Context: Travel expenses are one of the top two cost-cutting measures by companies in difficult economic times – the other is employee education and training. Savings on travel expenses (air and train fares, taxis, hotels, meals, and incidentals) are also a happy by-product of efforts to use more local supply and customer chains. Efforts to improve employee engagement and productivity by substituting virtual meetings for many face-to-face meetings also reduce travel costs. As customers become more local and as virtual meetings become more effective, travel budgets could be slashed dramatically. Breakthroughs in ""beam me up"" holography technology would also help.  ☺
 
-# Estimation guidance: The ""% Change"" could be quite high for services companies, especially consulting companies with distant clients. For companies in the manufacturing, distribution, and retail sectors, it would probably be less. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '76.8%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for services companies, especially consulting companies with distant clients. For companies in the manufacturing, distribution, and retail sectors, it would probably be less. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '76.8%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'maint','cur_exp_tooltip': """
 # Description: This is the cost of parts and labor to keep machinery and equipment in good working order.
 
@@ -316,7 +315,7 @@ inputs_data = {
 
 # The savings could be surprisingly high – they could be in the range of the savings in electricity (not all energy) expenses. In some sectors, maintenance expenses as a separate line item could approach zero, especially for leased facilities and equipment under contracts that include regular preventative maintenance.
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the manufacturing, distribution, and retail sectors because they have more equipment and appliances to maintain. It would probably be less for companies in the service sector. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '75.2%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the manufacturing, distribution, and retail sectors because they have more equipment and appliances to maintain. It would probably be less for companies in the service sector. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '75.2%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'materials','cur_exp_tooltip': """
 # Description: This the total cost of all materials used by the company to produce its products and to provide its services.
 
@@ -334,7 +333,7 @@ inputs_data = {
 
 # As part of their climate change adaptation efforts, smart companies reconfigure their supply chains to anticipate these temporary or permanent severe weather-related disruptions. They may find that their materials costs are lower if they make these backup changes and substitutions in a planned and strategic way, since they are able to avoid expensive alternate arrangements made in the heat of an emergency materials shortage when their bargaining position would be weaker.
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the manufacturing, distribution, and retail sectors because they require materials for their products. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '32%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the manufacturing, distribution, and retail sectors because they require materials for their products. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '32%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'water','cur_exp_tooltip': """
 # Description: This is the total cost of water used by the company.
 
@@ -358,7 +357,7 @@ inputs_data = {
 
 # * GM Detroit-Hamtramck Assembly will save nearly $2 M annually by reusing captured rainwater for manufacturing processes. GM expects to see a return on investment in a little over a year. The process eliminates over 20% of the plant’s water bill and saves over $140,000 annually in storm water discharge fees from the city of Detroit. Those fees made up 14% of the entire plant’s utility budget. — "GM Plant Will Save Millions of Dollars by Capturing Rainwater," Environmental Leader, August 2016 —
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the agriculture, manufacturing, and retail sectors which use a lot of water. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '86.9%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the agriculture, manufacturing, and retail sectors which use a lot of water. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '86.9%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'waste','cur_exp_tooltip': """
 # Description: This is the cost of waste treatment and disposal.
 
@@ -385,7 +384,7 @@ inputs_data = {
 # Possibilities:
 # Procter & Gamble, Unilever, Interface, Wal-Mart, Kraft, Ford, Kimberly Clark, and many others are achieving zero waste to landfill at  facilities, resulting in enormous savings and even new revenue streams. GM’s various recycling activities generated more than $2.5 billion in revenue between 2007 and 2010. It now earns $1 billion a year from selling scrap that it used to pay to have hauled away. That is on top of the value the company has achieved by reusing and repurposing materials within its own operations. ― "The Business Case for Zero Waste," GM News, October 2012 ―
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the extractive, agriculture, manufacturing, and retail sectors which generate a lot of waste. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '40.4%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the extractive, agriculture, manufacturing, and retail sectors which generate a lot of waste. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '40.4%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'insurance','cur_exp_tooltip': """
 # Definition: This is the cost premiums paid on all company insurance policies.
 
@@ -402,7 +401,7 @@ inputs_data = {
 
 # Insurance such as employee life insurance and workers' compensation to cover on-the-job injuries to employees may be reduced if the company ensures a safe and healthy workplace.
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the agriculture, manufacturing, and retail sectors which could be impacted by severe weather events caused by climate destabilization. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '43.9%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the agriculture, manufacturing, and retail sectors which could be impacted by severe weather events caused by climate destabilization. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '43.9%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'litigation','cur_exp_tooltip': """
 # Definition: This is the cost of fighting and settling law suits related to environmental / pollution and social issues.
 
@@ -415,7 +414,7 @@ inputs_data = {
 
 # Laggard companies on environmental, social, and labor issues may face lawsuits by regulators and activists. For example, companies could be held accountable for damages caused by climate change to which they knowingly contributed (i.e. with significant Scope 1, 2, and 3 greenhouse gas emissions), for delaying regulatory action on climate change (i.e. by lobbying hard for no action), for knowingly deceiving the public about climate change science (i.e. sowing seeds of doubt about climate scientist's credibility and the likely impacts if they are right), and for not mitigating impacts of climate change to its operation that it should have anticipated (e.g. breaching of earthen dams containing its tailing ponds).
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the extractive, agriculture, and manufacturing sectors since they might be held accountable / liable for carbon, materials, water, and pollution footprints and labor conditions. For companies in the service sector, this saving would be minimal and not be worth including. If a company has not already incurred such litigation expenses, the ""% Change"" would be zero – the possibility of such expenses is accounted for in the risk section, below. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '19.3%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the extractive, agriculture, and manufacturing sectors since they might be held accountable / liable for carbon, materials, water, and pollution footprints and labor conditions. For companies in the service sector, this saving would be minimal and not be worth including. If a company has not already incurred such litigation expenses, the ""% Change"" would be zero – the possibility of such expenses is accounted for in the risk section, below. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '19.3%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'compliance','cur_exp_tooltip': """
 # Definition: This is the cost of complying with new environmental or social / workplace regulations.
 
@@ -428,7 +427,7 @@ inputs_data = {
 
 # This benefit could be very indirect. For example, if one of the ways the company contributes to community wellbeing is to be an environmentally and socially responsible corporate citizen, there may be less need for regulators to introduce new regulations to force the company to clean up its act.
 
-# Estimation guidance: The ""% Change"" could be quite high for companies in the agriculture, manufacturing, and retail sectors since they might be  impacted by regulations about climate change. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'text','percent_value': '16.5%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: The ""% Change"" could be quite high for companies in the agriculture, manufacturing, and retail sectors since they might be  impacted by regulations about climate change. For companies in the service sector, this saving would be minimal and not be worth including. Use this comment box to document assumptions behind your estimate.','percent_type': 'number','percent_value': '16.5%%',cur_exp_value': '',comment': '',},"
 # "{'name': 'other','cur_exp_tooltip': """None""",'cur_exp_type': 'number','cur_exp_value': 52447.9577876519,cur_exp_value': '','percent_tooltip': '
 # Description: (Complete appropriately)
 
@@ -436,6 +435,6 @@ inputs_data = {
 
 # Possibilities: (Complete appropriately, if available)
 
-# Estimation guidance: (Complete appropriately)','percent_type': 'text','percent_value': '50.7%%',cur_exp_value': '',comment': '',},"
+# Estimation guidance: (Complete appropriately)','percent_type': 'number','percent_value': '50.7%%',cur_exp_value': '',comment': '',},"
 
 

@@ -45,4 +45,19 @@ $(document).ready(function() {
     $($tr).toggleClass('is-active');
   });
 
+  $(".recalc").keyup(function(){
+    var tr = $(this).closest('tr');
+    var value = tr.find('.val').val();
+    var percent = tr.find('.percent').val();
+
+    savings = Math.round(value * percent / 100.0, 2);
+
+    tr.find('#savings').html(savings);
+
+  });
+
 });
+
+
+
+
