@@ -72,7 +72,7 @@ $(document).ready(function() {
 
   $(".export").on('click', function(event) {
 
-    alert("WORD!!");
+    alert("This will export an editable version of these results pages");
 
   });
 
