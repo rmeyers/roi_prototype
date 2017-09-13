@@ -12,6 +12,7 @@
                 </div>
                 <ul class="small-6 columns menu align-right">
                     <li><a class="button small secondary right export" href="#">Export to Word</a></li>
+                    <li><a class="button small secondary" href="{{ url_for('dashboard', user_id=session.user_id) }}">Dashboard</a></li>
                     <li class="divider"></li>
                     <li><a class="button small secondary" href="{{ url_for('showInputs', user_id=session.user_id, project_id=10) }}">< Back to Inputs</a></li>
                 </ul>

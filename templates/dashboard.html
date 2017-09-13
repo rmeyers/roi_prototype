@@ -10,7 +10,7 @@
       <div class="row">
         <h5 class="small-6 columns float-left">Welcome, {{ session.profile.nickname | title }}.</h5>
         <ul class="small-6 columns menu align-right">
-          <li><a class="button small secondary right compare" href="#">Compare Projects</a></li>
+          <li><a class="button small secondary right" href="{{ url_for('compare', user_id=session.user_id) }}">Compare Projects</a></li>
         </ul>
       </div><br><br>
       <table class="">

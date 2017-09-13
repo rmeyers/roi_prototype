@@ -60,13 +60,7 @@ $(document).ready(function() {
   // Add smooth scrolling to all links
   $(".delete-project").on('click', function(event) {
 
-    alert("Whoa there! No deleting this project quite yet, we're working on it though.");
-
-  });
-
-  $(".compare").on('click', function(event) {
-
-    alert("Sorry, unable to compare right now, but we're working on it!");
+    alert("This will delete the project.");
 
   });
 

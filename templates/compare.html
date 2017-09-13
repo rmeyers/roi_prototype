@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+    <section class="compare">
+        <div class="wrap contents">
+            <div class="row">
+                <div class="small-6 columns">
+                        <h3>Project Comparisons</h3>
+                </div>
+                <ul class="small-6 columns menu align-right">
+                    <li><a class="button small secondary" href="{{ url_for('dashboard', user_id=session.user_id) }}">< Dashboard</a></li>
+                </ul>
+            </div><br><br>
+
+            <img src="{{ url_for('static', filename='img/compareTop.png') }}" alt="Compare Table"/>
+            <img src="{{ url_for('static', filename='img/compareMiddle.png') }}" alt="Compare Table"/>
+            <img src="{{ url_for('static', filename='img/compareBottom.png') }}" alt="Compare Table"/>
+            <img src="{{ url_for('static', filename='img/compareGraph.png') }}" alt="Compare Table"/>
+
+        </div>
+    </section>
+{% endblock %}
+
+

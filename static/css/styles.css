@@ -224,6 +224,19 @@ hr {
     width: 75%;
 }
 
+/* Compare */
+
+.compare {
+    background-color: #ffffff;
+    border: 1px solid gray;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
+    margin: 20px 2.5%;
+}
+
+.compare img {
+    width: 100%;
+}
+
 /* ----- FOOTER ----- */
 
 footer {

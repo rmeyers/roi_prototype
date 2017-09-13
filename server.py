@@ -185,8 +185,16 @@ def showResults(user_id, project_id):
 
 @app.route('/user/<int:user_id>/compare')
 @requires_auth
-def compareSelect(user_id):
-    return "This will be the compare page for user %s." % user_id
+def compare(user_id):
+    if user_id != login_session['user_id']:
+        response = make_response(json.dumps(
+            noPageAccess), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    projects_list = projects_from_db()
+    return render_template('compare.html',
+                           user=login_session[constants.PROFILE_KEY],
+                           env=env, user_id=user_id)
 
 
 @app.route('/user/<int:user_id>/compare/<int:project_id_1>/<int:project_id_2>/<int:project_id_3>')
