@@ -15,10 +15,11 @@
                 </ul>
             </div><br><br>
 
-            <img src="{{ url_for('static', filename='img/compareTop.png') }}" alt="Compare Table"/>
-            <img src="{{ url_for('static', filename='img/compareMiddle.png') }}" alt="Compare Table"/>
-            <img src="{{ url_for('static', filename='img/compareBottom.png') }}" alt="Compare Table"/>
-            <img src="{{ url_for('static', filename='img/compareGraph.png') }}" alt="Compare Table"/>
+            <p>The tool uses a multi-criteria analysis (MCA) structured decision-making approach to enable CEOs, CFOs, and other executives to make rigorous and transparent decisions about projects that require capital expenditures. A key feature of MCA is its emphasis on the judgement of the decision-making team in determining the relative weight or importance of each decision-making criterion, and scoring the performance of projects against the criteria. Excel uses those values to calculate the proposal’s weighted justification score, which arms senior executives with an additional layer of analytics to inform their project approval decision.</p>
+            <p>If several projects are competing for limited capital, they can be appraised together to see which has the best business case, using the weighted justification scores. To do so, run the numbers for Proposed Project #1, fill in that section of the tool, below, and save this workbook using the project's name. Then rename this workbook using the name of Proposed Project #2, and build its business case by modifying appropriate fields; the company data in the yellow fields is still valid, so there is no need to gather it again. Then copy and paste the results from the Business Case Framework table in the Overview worksheet into the Proposed Project #2 section in the tool below. Repeat for Proposed Project #3. Now the business cases for all three projects can be compared and appraised.</p>
+            <img src="{{ url_for('static', filename='img/compare.png') }}" alt="Compare Table"/><br><br><br>
+            <h4>Projects Comparison</h4><br>
+            <img class="compareGraph" src="{{ url_for('static', filename='img/compareGraph.png') }}" alt="Compare Table"/>
 
         </div>
     </section>
