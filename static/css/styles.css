@@ -273,4 +273,11 @@ footer .column:nth-child(2) {
     text-align: right;
 }
 
+.footer-left {
+    margin-left: 0;
+}
+
+.footer-right {
+    margin-right: 0;
+}
 
